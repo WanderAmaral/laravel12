@@ -64,4 +64,42 @@
     .alert-error {
         @apply bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative;
     }
+
+    .table-container {
+        @apply overflow-x-auto bg-white shadow-md rounded-lg;
+    }
+
+    .table {
+        @apply min-w-full border-collapse w-full;
+    }
+
+    .table-header {
+        @apply bg-blue-400 text-white uppercase text-sm leading-normal;
+    }
+
+    .table-header th {
+        @apply py-3 px-6 text-left;
+    }
+
+    .table-header .center {
+        @apply text-center;
+    }
+
+    .table-body {
+        @apply text-gray-600 text-sm font-light;
+    }
+    .table-row {
+        @apply border-b border-gray-200 hover:bg-blue-50 transition;
+    }
+
+    .table-cell {
+        @apply py-3 px-6;
+    }
+    .table-actions {
+        @apply py-3 px-6 text-center;
+    }
+
+    .pagination {
+        @apply mt-2 p-3;
+    }
 }
