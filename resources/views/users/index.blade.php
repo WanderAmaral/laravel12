@@ -30,7 +30,7 @@
                                 <td class="table-cell">{{ $user->email }}</td>
                                 <td class="table-actions">
                                     <a href="#" class="btn-primary">Visualizar</a>
-                                    <a href="#" class="btn-primary">Editar</a>
+                                    <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn-primary">Editar</a>
                                     <a href="#" class="btn-primary">Apagar</a>
                                 </td>
                             </tr>

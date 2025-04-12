@@ -30,4 +30,10 @@ class UserController extends Controller
             return back()->withInput()->with('error', 'Usuário não cadastrado!');
         }
     }
+
+    public function edit(User $user)
+    {
+
+        return view('users.edit', ['user' => $user]);
+    }
 }
