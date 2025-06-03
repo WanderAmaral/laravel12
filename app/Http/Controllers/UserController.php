@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserResquest;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Exception;
 
@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         return view('users.create');
     }
-    public function store(UserResquest $request)
+    public function store(UserRequest $request)
     {
         //dd($request);
         try {
@@ -35,5 +35,18 @@ class UserController extends Controller
     {
 
         return view('users.edit', ['user' => $user]);
+    }
+
+    public function update(UserRequest $request, User $user)
+    {
+        try {
+            $user->update(['name' => $request->name, 'email' => $request->email,]);
+
+            return redirect()->route('user.edit', ['user' => $user->id])->with('success', 'Usuário atualizado com sucesso!');
+        } catch (Exception $e) {
+
+            //dd($e->getMessage());
+            return back()->withInput()->with('error', 'Usuário não atualizado!');
+        } 
     }
 }

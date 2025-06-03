@@ -15,7 +15,7 @@
             <form action="{{ route('user.update', ['user' => $user->id]) }}" class="form-container" method="POST">
                 @csrf
                 @method('PUT')
-                
+
                 <label class="form-label" for="name">Nome: </label>
                 <input class="form-input" type="text" name="name" id="name" placeholder="Nome Completo"
                     value="{{ old('name', $user->name) }}">
