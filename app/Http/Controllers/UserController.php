@@ -15,6 +15,13 @@ class UserController extends Controller
 
         return view('users.index', ['users' => $users]);
     }
+
+    public function show(User $user)
+    {
+        //dd($user);
+        return view('users.show', ['user' => $user]);
+    }
+
     public function create()
     {
         return view('users.create');
@@ -42,7 +49,7 @@ class UserController extends Controller
         try {
             $user->update(['name' => $request->name, 'email' => $request->email,]);
 
-            return redirect()->route('user.edit', ['user' => $user->id])->with('success', 'Usuário atualizado com sucesso!');
+            return redirect()->route('user.show', ['user' => $user->id])->with('success', 'Usuário atualizado com sucesso!');
         } catch (Exception $e) {
 
             //dd($e->getMessage());
